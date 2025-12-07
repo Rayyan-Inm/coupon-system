@@ -4,6 +4,10 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+// --- Root Route: The "Welcome" Page ---
+app.get('/', (req, res) => {
+    res.send("<h1>Welcome to the Coupon System API! 🚀</h1><p>The server is up and running.</p><p>Check <a href='/coupons'>/coupons</a> to see the data.</p>");
+});
 
 // --- HELPER: Logic Engine (Checks if a coupon works) ---
 function isCouponEligible(coupon, user, cart, cartValue) {

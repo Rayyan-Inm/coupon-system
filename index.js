@@ -8,6 +8,31 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.send("<h1>Welcome to the Coupon System API! 🚀</h1><p>The server is up and running.</p><p>Check <a href='/coupons'>/coupons</a> to see the data.</p>");
 });
+// --- API 3: Login (Mock Authentication) ---
+// The PDF requires a specific user to "log in". 
+// Since we have no UI, this API endpoint allows testing that requirement.
+app.post('/login', (req, res) => {
+    const { email, password } = req.body;
+
+    // 1. Find the user in our database
+    const user = db.users.find(u => u.email === email);
+
+    // 2. Check if user exists and password matches
+    if (user && user.password === password) {
+        // Success! Return the user details (excluding the password for safety)
+        res.json({ 
+            message: "Login successful", 
+            token: "fake-jwt-token", // Simulating a real login token
+            user: { 
+                userId: user.userId, 
+                email: user.email 
+            }
+        });
+    } else {
+        // Failed
+        res.status(401).json({ error: "Invalid email or password" });
+    }
+});
 
 // --- HELPER: Logic Engine (Checks if a coupon works) ---
 function isCouponEligible(coupon, user, cart, cartValue) {

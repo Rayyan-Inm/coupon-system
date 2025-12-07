@@ -29,3 +29,18 @@ node test-final.js
 Run the following command:
 ```bash
 node index.js
+``` 
+
+## 5. AI Usage Note
+I utilized AI tools (Gemini) primarily for debugging and clarifying technical concepts during development.
+
+**Summary of Usage:**
+* **Concept Clarification:** Used AI to better understand how to structure an Express.js API and handle HTTP requests.
+* **Debugging:** Assisted in resolving syntax errors and platform-specific issues (e.g., Windows PowerShell commands).
+* **Testing:** Consulted AI to verify how to test API endpoints effectively using `curl` and `fetch` scripts since no frontend UI was required.
+
+**Key Prompts Used:**
+* "How to structure a Node.js project for a simple API?"
+* "Explain how to filter arrays in JavaScript based on multiple conditions."
+* "How to simulate a login request using fetch in a test script?"
+* "Why am I getting a 'Cannot GET /' error in Express?"
